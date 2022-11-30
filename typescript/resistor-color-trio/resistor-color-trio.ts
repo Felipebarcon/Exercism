@@ -1,19 +1,41 @@
-interface Color {
-  [color: string]: number;
-}
+const ColorAry = [
+  `black`,
 
-const colorsMap: Color = {
-  black: 0,
-  brown: 1,
-  red: 2,
-  orange: 3,
-  yellow: 4,
-  green: 5,
-  blue: 6,
-  violet: 7,
-  grey: 8,
-  white: 9,
+  `brown`,
 
-export function decodedResistorValue(color: string): number {
-  throw new Error("Remove this statement and implement this function");
+  `red`,
+
+  `orange`,
+
+  `yellow`,
+
+  `green`,
+
+  `blue`,
+
+  `violet`,
+
+  `grey`,
+
+  `white`,
+] as const; // need "as const" for type Color
+
+// not needed for this exercise, but this will disallow passing e.g. 'pink' to constructor
+
+export type Color = typeof ColorAry[number];
+
+export function decodedResistorValue([band1, band2, band3]: Color[]): string {
+  let num =
+    (ColorAry.indexOf(band1) * 10 + ColorAry.indexOf(band2)) *
+    10 ** ColorAry.indexOf(band3);
+
+  let ohms = "ohms";
+
+  if (num >= 1000) {
+    ohms = "kiloohms";
+
+    num = num / 1000;
+  }
+
+  return `${num} ${ohms}`;
 }
