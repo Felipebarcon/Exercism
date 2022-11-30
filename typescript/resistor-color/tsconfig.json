@@ -13,6 +13,7 @@
     "target": "ESNext", // ESLint doesn't support this yet: "es2022",
 
     "strict": true,
+    "strictPropertyInitialization": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

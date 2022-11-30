@@ -1,5 +1,32 @@
-export const colorCode = () => {
-  throw new Error('Delete this line and implement this function')
-}
+export const COLORS: string[] = [
+  `black`,
 
-export const COLORS = undefined
+  `brown`,
+
+  `red`,
+
+  `orange`,
+
+  `yellow`,
+
+  `green`,
+
+  `blue`,
+
+  `violet`,
+
+  `grey`,
+
+  `white`,
+];
+
+export const colorCode = (color: string): any => {
+  if (color !== "colors") {
+    return COLORS.indexOf(color);
+  } else {
+    let band = COLORS.map((col) => {
+      COLORS.push(col);
+    });
+    return COLORS;
+  }
+};
